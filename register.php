@@ -1,5 +1,5 @@
-<?php
 
+<?php
 include 'components/connect.php';
 
 if(isset($_COOKIE['user_id'])){
@@ -22,11 +22,26 @@ if(isset($_POST['submit'])){
    $c_pass = sha1($_POST['c_pass']);
    $c_pass = filter_var($c_pass, FILTER_SANITIZE_STRING);   
 
-   $select_users = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
+   // Validate email
+   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $warning_msg[] = 'Invalid email format!';
+   }
+
+   // Validate phone number (must start with '98' and be 10 digits long)
+   if (!preg_match("/^98[0-9]{8}$/", $number)) {
+      $warning_msg[] = 'Invalid phone number! It must start with 98 and be exactly 10 digits.';
+   }
+
+   // Validate password (minimum 8 characters, at least 1 letter and 1 number)
+   if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/", $_POST['pass'])) {
+      $warning_msg[] = 'Password must be at least 6 characters long and contain at least 1 letter and 1 number.';
+   }
+
+   $select_users = $conn->prepare("SELECT * FROM users WHERE email = ?");
    $select_users->execute([$email]);
 
    if($select_users->rowCount() > 0){
-      $warning_msg[] = 'email already taken!';
+      $warning_msg[] = 'Email already taken!';
    }else{
       if($pass != $c_pass){
          $warning_msg[] = 'Password not matched!';
@@ -35,7 +50,7 @@ if(isset($_POST['submit'])){
          $insert_user->execute([$id, $name, $number, $email, $c_pass]);
          
          if($insert_user){
-            $verify_users = $conn->prepare("SELECT * FROM `users` WHERE email = ? AND password = ? LIMIT 1");
+            $verify_users = $conn->prepare("SELECT * FROM users WHERE email = ? AND password = ? LIMIT 1");
             $verify_users->execute([$email, $pass]);
             $row = $verify_users->fetch(PDO::FETCH_ASSOC);
          
@@ -43,15 +58,12 @@ if(isset($_POST['submit'])){
                setcookie('user_id', $row['id'], time() + 60*60*24*30, '/');
                header('location:home.php');
             }else{
-               $error_msg[] = 'something went wrong!';
+               $error_msg[] = 'Something went wrong!';
             }
          }
-
       }
    }
-
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -79,9 +91,9 @@ if(isset($_POST['submit'])){
 
    <form action="" method="post">
       <h3>create an account!</h3>
-      <input type="tel" name="name" required maxlength="50" placeholder="enter your name" class="box">
+      <input type="text" name="name" required maxlength="50" placeholder="enter your name" class="box">
       <input type="email" name="email" required maxlength="50" placeholder="enter your email" class="box">
-      <input type="number" name="number" required min="0" max="9999999999" maxlength="10" placeholder="enter your number" class="box">
+      <input type="text" name="number" required minlength="10" maxlength="10" placeholder="enter your number (must start with 98)" class="box">
       <input type="password" name="pass" required maxlength="20" placeholder="enter your password" class="box">
       <input type="password" name="c_pass" required maxlength="20" placeholder="confirm your password" class="box">
       <p>already have an account? <a href="login.html">login now</a></p>
@@ -91,15 +103,6 @@ if(isset($_POST['submit'])){
 </section>
 
 <!-- register section ends -->
-
-
-
-
-
-
-
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 

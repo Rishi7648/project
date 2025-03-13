@@ -1,5 +1,4 @@
 <?php  
-
 include 'components/connect.php';
 
 if(isset($_COOKIE['user_id'])){
@@ -15,6 +14,31 @@ include 'components/save_send.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <style>.perfect-home {
+    font-size: 3rem;  /* Increase font size */
+    font-weight: bold; /* Make it bold */
+    color: blue; /* White text */
+    text-shadow: black;
+   
+    padding: 15px 30px; /* Add padding */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center the text */
+    display: inline-block; /* Keep background width limited to text */
+    animation: fadeIn 1.5s ease-in-out; /* Add animation */
+}
+
+/* Add animation effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,113 +55,17 @@ include 'components/save_send.php';
    
 <?php include 'components/user_header.php'; ?>
 
-
 <!-- home section starts  -->
 
 <div class="home">
 
    <section class="center">
 
-      <form action="search.php" method="post">
-         <h3>find your perfect home</h3>
-         <div class="box">
-            <p>enter location <span>*</span></p>
-            <input type="text" name="h_location" required maxlength="100" placeholder="enter city name" class="input">
-         </div>
-         <div class="flex">
-            <div class="box">
-               <p>property type <span>*</span></p>
-               <select name="h_type" class="input" required>
-                  <option value="flat">flat</option>
-                  <option value="house">house</option>
-                  <option value="shop">shop</option>
-               </select>
-            </div>
-            <div class="box">
-               <p>offer type <span>*</span></p>
-               <select name="h_offer" class="input" required>
-                  <option value="sale">sale</option>
-                  <option value="resale">resale</option>
-                  <option value="rent">rent</option>
-               </select>
-            </div>
-            <div class="box">
-               <p>maximum budget <span>*</span></p>
-               <select name="h_min" class="input" required>
-                  <option value="5000">5k</option>
-                  <option value="10000">10k</option>
-                  <option value="15000">15k</option>
-                  <option value="20000">20k</option>
-                  <option value="30000">30k</option>
-                  <option value="40000">40k</option>
-                  <option value="40000">40k</option>
-                  <option value="50000">50k</option>
-                  <option value="100000">1 lac</option>
-                  <option value="500000">5 lac</option>
-                  <option value="1000000">10 lac</option>
-                  <option value="2000000">20 lac</option>
-                  <option value="3000000">30 lac</option>
-                  <option value="4000000">40 lac</option>
-                  <option value="4000000">40 lac</option>
-                  <option value="5000000">50 lac</option>
-                  <option value="6000000">60 lac</option>
-                  <option value="7000000">70 lac</option>
-                  <option value="8000000">80 lac</option>
-                  <option value="9000000">90 lac</option>
-                  <option value="10000000">1 Cr</option>
-                  <option value="20000000">2 Cr</option>
-                  <option value="30000000">3 Cr</option>
-                  <option value="40000000">4 Cr</option>
-                  <option value="50000000">5 Cr</option>
-                  <option value="60000000">6 Cr</option>
-                  <option value="70000000">7 Cr</option>
-                  <option value="80000000">8 Cr</option>
-                  <option value="90000000">9 Cr</option>
-                  <option value="100000000">10 Cr</option>
-                  <option value="150000000">15 Cr</option>
-                  <option value="200000000">20 Cr</option>
-               </select>
-            </div>
-            <div class="box">
-               <p>maximum budget <span>*</span></p>
-               <select name="h_max" class="input" required>
-                  <option value="5000">5k</option>
-                  <option value="10000">10k</option>
-                  <option value="15000">15k</option>
-                  <option value="20000">20k</option>
-                  <option value="30000">30k</option>
-                  <option value="40000">40k</option>
-                  <option value="40000">40k</option>
-                  <option value="50000">50k</option>
-                  <option value="100000">1 lac</option>
-                  <option value="500000">5 lac</option>
-                  <option value="1000000">10 lac</option>
-                  <option value="2000000">20 lac</option>
-                  <option value="3000000">30 lac</option>
-                  <option value="4000000">40 lac</option>
-                  <option value="4000000">40 lac</option>
-                  <option value="5000000">50 lac</option>
-                  <option value="6000000">60 lac</option>
-                  <option value="7000000">70 lac</option>
-                  <option value="8000000">80 lac</option>
-                  <option value="9000000">90 lac</option>
-                  <option value="10000000">1 Cr</option>
-                  <option value="20000000">2 Cr</option>
-                  <option value="30000000">3 Cr</option>
-                  <option value="40000000">4 Cr</option>
-                  <option value="50000000">5 Cr</option>
-                  <option value="60000000">6 Cr</option>
-                  <option value="70000000">7 Cr</option>
-                  <option value="80000000">8 Cr</option>
-                  <option value="90000000">9 Cr</option>
-                  <option value="100000000">10 Cr</option>
-                  <option value="150000000">15 Cr</option>
-                  <option value="200000000">20 Cr</option>
-               </select>
-            </div>
-         </div>
-         <input type="submit" value="search property" name="h_search" class="btn">
-      </form>
+      
+   <h3 class="perfect-home">Find Your Perfect Home</h3>
+
+         
+      
 
    </section>
 
@@ -155,38 +83,14 @@ include 'components/save_send.php';
 
       <div class="box">
          <img src="images/icon-1.png" alt="">
-         <h3>buy house</h3>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
-      </div>
-
-      <div class="box">
-         <img src="images/icon-2.png" alt="">
-         <h3>rent house</h3>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+         <h3>buy house </h3>
+         <p>Find your perfect home from a wide range of properties. Explore various locations, compare prices, and make a smart investment for your future.</p>
       </div>
 
       <div class="box">
          <img src="images/icon-3.png" alt="">
-         <h3>sell house</h3>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
-      </div>
-
-      <div class="box">
-         <img src="images/icon-4.png" alt="">
-         <h3>flats and buildings</h3>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
-      </div>
-
-      <div class="box">
-         <img src="images/icon-5.png" alt="">
-         <h3>shops and malls</h3>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
-      </div>
-
-      <div class="box">
-         <img src="images/icon-6.png" alt="">
-         <h3>24/7 service</h3>
-         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, incidunt.</p>
+         <h3>sell house  </h3>
+         <p>List your house with us and connect with potential buyers instantly. Get the best value for your property with a hassle-free selling process.</p>
       </div>
 
    </div>
@@ -267,7 +171,7 @@ include 'components/save_send.php';
             </div>
          </div>
          <div class="box">
-            <div class="price"><i class="fas fa-indian-rupee-sign"></i><span><?= $fetch_property['price']; ?></span></div>
+            <div class="price">RS.</i><span><?= $fetch_property['price']; ?></span></div>
             <h3 class="name"><?= $fetch_property['property_name']; ?></h3>
             <p class="location"><i class="fas fa-map-marker-alt"></i><span><?= $fetch_property['address']; ?></span></p>
             <div class="flex">
@@ -300,13 +204,6 @@ include 'components/save_send.php';
 </section>
 
 <!-- listings section ends -->
-
-
-
-
-
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 

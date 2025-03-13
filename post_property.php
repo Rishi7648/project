@@ -245,11 +245,11 @@ if(isset($_POST['post'])){
       <div class="flex">
          <div class="box">
             <p>property price <span>*</span></p>
-            <input type="number" name="price" required min="0" max="99999999999" maxlength="10" placeholder="enter property price" class="input">
+            <input type="number" name="price" required min="0" max="99999999999" maxlength="10" placeholder="enter property price in number" class="input">
          </div>
          <div class="box">
             <p>deposite amount <span>*</span></p>
-            <input type="number" name="deposite" required min="0" max="9999999999" maxlength="10" placeholder="enter deposite amount" class="input">
+            <input type="number" name="deposite" required min="0" max="9999999999" maxlength="10" placeholder="enter deposite amount in number" class="input">
          </div>
          <div class="box">
             <p>property address <span>*</span></p>
@@ -259,16 +259,15 @@ if(isset($_POST['post'])){
             <p>offer type <span>*</span></p>
             <select name="offer" required class="input">
                <option value="sale">sale</option>
-               <option value="resale">resale</option>
-               <option value="rent">rent</option>
+
             </select>
          </div>
          <div class="box">
             <p>property type <span>*</span></p>
             <select name="type" required class="input">
-               <option value="flat">flat</option>
+               
                <option value="house">house</option>
-               <option value="shop">shop</option>
+              
             </select>
          </div>
          <div class="box">
@@ -288,61 +287,19 @@ if(isset($_POST['post'])){
          </div>
          <div class="box">
             <p>how many BHK <span>*</span></p>
-            <select name="bhk" required class="input">
-               <option value="1">1 BHK</option>
-               <option value="2">2 BHK</option>
-               <option value="3">3 BHK</option>
-               <option value="4">4 BHK</option>
-               <option value="5">5 BHK</option>
-               <option value="6">6 BHK</option>
-               <option value="7">7 BHK</option>
-               <option value="8">8 BHK</option>
-               <option value="9">9 BHK</option>
-            </select>
+            <input type="number" name="bhk" required maxlength="50" placeholder="enter the bhk in number" class="input">
          </div>
          <div class="box">
             <p>how many bedrooms <span>*</span></p>
-            <select name="bedroom" required class="input">
-               <option value="0">0 bedroom</option>
-               <option value="1" selected>1 bedroom</option>
-               <option value="2">2 bedroom</option>
-               <option value="3">3 bedroom</option>
-               <option value="4">4 bedroom</option>
-               <option value="5">5 bedroom</option>
-               <option value="6">6 bedroom</option>
-               <option value="7">7 bedroom</option>
-               <option value="8">8 bedroom</option>
-               <option value="9">9 bedroom</option>
-            </select>
+            <input type="number" name="bedroom" required maxlength="50" placeholder="enter bedroom in number" class="input">
          </div>
          <div class="box">
             <p>how many bathrooms <span>*</span></p>
-            <select name="bathroom" required class="input">
-               <option value="1">1 bathroom</option>
-               <option value="2">2 bathroom</option>
-               <option value="3">3 bathroom</option>
-               <option value="4">4 bathroom</option>
-               <option value="5">5 bathroom</option>
-               <option value="6">6 bathroom</option>
-               <option value="7">7 bathroom</option>
-               <option value="8">8 bathroom</option>
-               <option value="9">9 bathroom</option>
-            </select>
+            <input type="number" name="bathroom" required maxlength="50" placeholder="enter bathroom in number" class="input">
          </div>
          <div class="box">
             <p>how many balconys <span>*</span></p>
-            <select name="balcony" required class="input">
-               <option value="0">0 balcony</option>
-               <option value="1">1 balcony</option>
-               <option value="2">2 balcony</option>
-               <option value="3">3 balcony</option>
-               <option value="4">4 balcony</option>
-               <option value="5">5 balcony</option>
-               <option value="6">6 balcony</option>
-               <option value="7">7 balcony</option>
-               <option value="8">8 balcony</option>
-               <option value="9">9 balcony</option>
-            </select>
+            <input type="number" name="balcony" required maxlength="50" placeholder="enter balcony in number" class="input">
          </div>
          <div class="box">
             <p>carpet area <span>*</span></p>

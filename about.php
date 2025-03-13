@@ -29,69 +29,47 @@ if(isset($_COOKIE['user_id'])){
    
 <?php include 'components/user_header.php'; ?>
 
-<!-- about section starts  -->
-
+<!-- About section starts -->
 <section class="about">
-
    <div class="row">
       <div class="image">
-         <img src="images/about-img.svg" alt="">
+         <img src="images/about-img.svg" alt="About Us">
       </div>
       <div class="content">
-         <h3>why choose us?</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolorem provident voluptatum distinctio laborum veritatis vitae suscipit praesentium fugiat unde?</p>
-        
+         <h3>Why Choose Us?</h3>
+         <ul>
+            <P>User-Friendly Interface:</span> Navigate our platform with ease and convenience.</P>
+            <P> Your data and transactions are protected with  security measures</P>
+            <p> Detailed design: Access comprehensive property details, including images </p>
+            <P> Responsive design:Enjoy a seamless experience on any device, whether mobile, tablet, or desktop</P>
+         </ul>
+         <p>Join us today to explore, buy, and sell houses with confidence. Your dream property is just a few clicks away!</p>
       </div>
    </div>
-
 </section>
+<!-- About section ends -->
 
-<!-- about section ends -->
-
-<!-- steps section starts  -->
-
+<!-- What We Offer section starts -->
+<section class="offer">
+   <h2 class="section-title">What We Offer</h2>
    <div class="box-container">
-
-      
-
-   
-</section>
-
-<!-- steps section ends -->
-
-<!-- review section starts  -->
-
-
-   <div class="box-container">
-
-      
-
-      <
-
-      <
-
-      
-
-      
-
+      <div class="box">
+         <img src="images/icon-1.png" alt="Buy House">
+         <h3>Buy Properties</h3>
+         <p>Browse a wide range of properties, including  houses, in your preferred locations. Use our intuitive search filters to find your dream house based on your specific requirements.</p>
+      </div>
+      <div class="box">
+         <img src="images/icon-3.png" alt="Sell House">
+         <h3>Sell Properties</h3>
+         <p>List your property effortlessly with detailed descriptions and images.  our platform ensures your listing gets the visibility it deserves.</p>
+      </div>
    </div>
-
 </section>
-
-<!-- review section ends -->
-
-
-
-
-
-
-
-
-
+<!-- What We Offer section ends -->
 
 <?php include 'components/footer.php'; ?>
 
-<!-- custom js file link  -->
+<!-- Custom JS file link -->
 <script src="js/script.js"></script>
 
 </body>
